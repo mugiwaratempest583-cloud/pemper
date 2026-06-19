@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puzzle Geser</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ==================== SPLASH SCREEN ==================== -->
+<div id="splash">
+    <h1>🧩</h1>
+    <h1 style="font-size:2.5em; margin-top:-10px;">Puzzle Geser</h1>
+    <div class="loader">
+        <div class="loader-bar" id="loaderBar"></div>
+    </div>
+    <p id="loadingText">Memuat...</p>
+</div>
+
+<!-- ==================== CONTAINER UTAMA ==================== -->
+<div class="container">
+
+    <!-- ========== HOME ========== -->
+    <div id="homeScreen" class="screen active">
+        <h1 style="font-size:2.8em; color:#feca57;">🧩 Puzzle Geser</h1>
+        <p style="color:#aaa; margin-bottom:20px;">Susun kotak hingga berurutan!</p>
+        <div class="home-menu">
+            <button onclick="goToLevelSelect()">▶ Play</button>
+            <button onclick="goToAbout()">ℹ️ About</button>
+            <button onclick="exitGame()">✖ Exit</button>
+        </div>
+    </div>
+
+    <!-- ========== ABOUT ========== -->
+    <div id="aboutScreen" class="screen">
+        <div class="about-content">
+            <h2>👨‍💻 Tentang Game</h2>
+            <p>Game puzzle geser ini dibuat oleh:</p>
+            <p><strong>Farhan</strong> · <strong>Janu</strong> · <strong>Aziz</strong></p>
+            <p style="color:#aaa; font-size:0.9em; margin-top:20px;">Versi 1.0</p>
+        </div>
+        <button class="btn-back" onclick="goToHome()">⬅ Kembali</button>
+    </div>
+
+    <!-- ========== LEVEL SELECT ========== -->
+    <div id="levelScreen" class="screen">
+        <h2 style="color:#feca57;">Pilih Level</h2>
+        <p style="color:#aaa; margin-bottom:15px;">Tingkat kesulitan meningkat</p>
+        <div class="level-grid" id="levelGrid"></div>
+        <button class="btn-back" onclick="goToHome()">⬅ Kembali</button>
+    </div>
+
+    <!-- ========== GAME ========== -->
+    <div id="gameScreen" class="screen">
+        <div class="game-header">
+            <span><span class="label">Level</span> <span class="value" id="levelDisplay">1</span></span>
+            <span><span class="label">⏱️ Waktu</span> <span class="value" id="timerDisplay">0</span> detik</span>
+            <span><span class="label">Langkah</span> <span class="value" id="movesDisplay">0</span></span>
+        </div>
+        <div id="board"></div>
+        <div class="game-actions">
+            <button onclick="shuffleBoard()">🔀 Acak</button>
+            <button onclick="resetBoard()">🔄 Reset</button>
+            <button class="btn-back-game" onclick="quitGame()">🏠 Keluar</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- ==================== POPUP MENANG ==================== -->
+<div id="winPopup">
+    <div class="popup-box">
+        <h2>🎉 SELESAI!</h2>
+        <p>Waktu: <strong id="winTime">0</strong> detik</p>
+        <p>Langkah: <strong id="winMoves">0</strong></p>
+        <button onclick="closeWinPopup()">Main Lagi</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
